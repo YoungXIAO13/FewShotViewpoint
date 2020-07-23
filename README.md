@@ -4,11 +4,11 @@
 [\[PDF\]]() [\[Project webpage\]](http://imagine.enpc.fr/~xiaoy/FSDetView/)
 
 <p align="center">
-<img src="https://github.com/YoungXIAO13/FewShotDetection/blob/master/img/PipelineView.png" width="800px" alt="teaser">
+<img src="https://github.com/YoungXIAO13/FewShotViewpoint/blob/master/img/PipelineView.png" width="800px" alt="teaser">
 </p>
 
 If our project is helpful for your research, please consider citing:
-```Bash
+```
 @INPROCEEDINGS{Xiao2020FSDetView,
     author    = {Yang Xiao and Renaud Marlet},
     title     = {Few-Shot Object Detetcion and Viewpoint Estimation for Objects in the Wild},
@@ -95,11 +95,48 @@ data/Pascal3D
 
 ## Getting Start
 
-
 ### Training
 
+Base-class training and few-shot fine-tuning for **intra-dataset**:
+```bash
+bash run/train_intra.sh
+```
+
+Base-class training and few-shot fine-tuning for **inter-dataset**:
+```bash
+bash run/train_inter.sh
+```
 
 ### Testing
 
+In **intra-dataset** setting, we test on the 20 novel classes of ObjectNet3D:
+```bash
+bash run/test_intra.sh
+```
 
-**Testing results** will be writen in ``./save_models/{exp}/{dataset_name}/Kshots_out.txt``.
+In **inter-dataset** setting, we train on the 12 novel classes of Pascal3D:
+```bash
+bash run/test_inter.sh
+```
+
+### Multiple Runs
+
+Run 10 times training and testing for **intra-dataset**
+```bash
+bash run/multiple_times_intra.sh
+```
+
+To print the performance averaged over multiple runs:
+```bash
+python mean_metrics.py save_models/IntraDataset_shot10
+``` 
+
+Run 10 times training and testing for **inter-dataset**
+```bash
+bash run/multiple_times_inter.sh
+```
+
+To print the performance averaged over multiple runs:
+```bash
+python mean_metrics.py save_models/InterDataset_shot10
+``` 
