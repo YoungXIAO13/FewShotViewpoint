@@ -56,13 +56,13 @@ We evaluate our method on two commonly-used benchmarks:
 We use the train set of ObjectNet3D for training and the val set for evaluation. 
 Following [StarMap](https://github.com/xingyizhou/StarMap), we split the 100 object classes into 80 base classes and 20 novel classes. 
 
-* Download [ObjectNet3D](https://cvgl.stanford.edu/projects/objectnet3d/):
+Download [ObjectNet3D](https://cvgl.stanford.edu/projects/objectnet3d/):
 ```sh
 cd ./data/ObjectNet3D
 bash download_object3d.sh
 ```
 
-* Data structure should look like:
+Data structure should look like:
 ```
 data/ObjectNet3D
     Annotations/
@@ -77,13 +77,13 @@ data/ObjectNet3D
 We use the train set of ObjectNet3D for training and the val set of Pascal3D for evaluation.
 Following [MetaView](https://arxiv.org/abs/1905.04957), we use the 12 object classes that are the same with Pascal3D as novel classes and use the rest 88 as base classes.  
 
-* Download [Pascal3D](https://cvgl.stanford.edu/projects/pascal3d.html):
+Download [Pascal3D](https://cvgl.stanford.edu/projects/pascal3d.html):
 ```sh
 cd ./data/Pascal3D
 bash download_pascal3d.sh
 ```
 
-* Data structure should look like:
+Data structure should look like:
 ```
 data/Pascal3D
     Annotations/
@@ -95,17 +95,37 @@ data/Pascal3D
 
 ## Getting Start
 
-### Training
+### Base-Class Training
 
-Base-class training and few-shot fine-tuning for **intra-dataset**:
+We provide pre-trained models of **base-class training**:
 ```bash
-bash run/train_intra.sh
+bash download_models.sh
+```
+You will get a dir like:
+```
+save_models/
+    IntraDataset/checkpoint.pth
+    InterDataset/checkpoint.pth
 ```
 
-Base-class training and few-shot fine-tuning for **inter-dataset**:
+You can also train the network yourself by running:
 ```bash
+# Intra-Dataset
+bash run/train_intra.sh
+
+# Inter-Dataset
 bash run/train_inter.sh
 ```
+
+### Few-Shot Fine-tuning
+
+Fine-tune the base-training models on a balanced training data including both base and novel classes:
+```bash
+bash run/finetune_intra.sh
+
+bash run/finetune_inter.sh
+```
+
 
 ### Testing
 
@@ -121,22 +141,16 @@ bash run/test_inter.sh
 
 ### Multiple Runs
 
-Run 10 times training and testing for **intra-dataset**
+Once the base-class training is done, you can run 10 times few-shot fine-tuning and testing with few-shot training data randomly selected for each run:
 ```bash
 bash run/multiple_times_intra.sh
-```
 
-To print the performance averaged over multiple runs:
-```bash
-python mean_metrics.py save_models/IntraDataset_shot10
+bash run/multiple_times_inter.sh
 ``` 
 
-Run 10 times training and testing for **inter-dataset**
+To get the performance averaged over multiple runs:
 ```bash
-bash run/multiple_times_inter.sh
-```
+python mean_metrics.py save_models/IntraDataset_shot10
 
-To print the performance averaged over multiple runs:
-```bash
 python mean_metrics.py save_models/InterDataset_shot10
 ``` 
