@@ -1,7 +1,7 @@
 # Few-Shot Viewpoint Estimation
 
 (ECCV 2020) PyTorch implementation of paper "Few-Shot Object Detection and Viewpoint Estimation for Objects in the Wild"\
-[\[PDF\]]() [\[Project webpage\]](http://imagine.enpc.fr/~xiaoy/FSDetView/)
+[\[PDF\]](https://arxiv.org/abs/2007.12107) [\[Project webpage\]](http://imagine.enpc.fr/~xiaoy/FSDetView/)
 
 <p align="center">
 <img src="https://github.com/YoungXIAO13/FewShotViewpoint/blob/master/img/PipelineView.png" width="800px" alt="teaser">

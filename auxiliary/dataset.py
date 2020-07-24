@@ -119,8 +119,6 @@ class Pascal3D(data.Dataset):
 
         # sample K-shot training data
         if train and shot is not None:
-            frame = frame[frame.truncated == 0]
-            frame = frame[frame.occluded == 0]
             categories = np.unique(frame.cat)
             fewshot_frame = []
             for cat in categories:
