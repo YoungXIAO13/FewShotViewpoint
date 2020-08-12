@@ -17,9 +17,9 @@ If our project is helpful for your research, please consider citing:
 ```
 
 ## Tabel of Contents
-* [Installation](#installation)
-* [Data Preparation](#data-preparation)
-* [Getting Started](#getting-started)
+* [Installation](https://github.com/YoungXIAO13/FewShotViewpoint#installation)
+* [Data Preparation](https://github.com/YoungXIAO13/FewShotViewpoint#data-preparation)
+* [Getting Started](https://github.com/YoungXIAO13/FewShotViewpoint#getting-started)
 
 
 ## Installation
@@ -28,7 +28,6 @@ Code built on top of [PoseFromShape](https://github.com/YoungXIAO13/PoseFromShap
  
 **Requirements**
 
-* CUDA 8.0
 * Python=3.6
 * PyTorch>=0.4.1
 * torchvision matched your PyTorch version
@@ -41,7 +40,10 @@ Create conda env:
 conda create --name FSviewpoint --file spec-file.txt
 conda activate FSviewpoint
 conda install -c conda-forge matplotlib
+```
 
+Install blender for visualizing the estimated 3D poses:
+```sh
 ## Install blender as a python module
 conda install auxiliary/python-blender-2.77-py36_0.tar.bz2
 ```
