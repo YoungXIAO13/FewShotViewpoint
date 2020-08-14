@@ -101,8 +101,12 @@ data/Pascal3D
 
 We provide pre-trained models of **base-class training**:
 ```bash
+# download from Dropbox
 bash download_models.sh
 ```
+We also provide pth files in [BaiduPan](https://pan.baidu.com/s/1FMYdi6LRhRir_QdpEbpUgg 
+) with code **no8t**.
+
 You will get a dir like:
 ```
 save_models/
