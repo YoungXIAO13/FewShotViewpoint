@@ -145,6 +145,23 @@ In **inter-dataset** setting, we train on the 12 novel classes of Pascal3D:
 bash run/test_inter.sh
 ```
 
+For a quick re-usage of our model, we provid pre-trained model weights and extracted mean class data:
+```bash
+# download from Dropbox
+bash download_models.sh
+```
+
+You will get two folders:
+```bash
+IntraDataset_shot10/
+    checkpoint.pth
+    mean_class_attentions.pkl
+InterDataset_shot10/
+    checkpoint.pth
+    mean_class_attentions.pkl
+```
+
+
 ### Multiple Runs
 
 Once the base-class training is done, you can run 10 times few-shot fine-tuning and testing with few-shot training data randomly selected for each run:
