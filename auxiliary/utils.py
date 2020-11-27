@@ -36,7 +36,10 @@ def KaiMingInit(net):
 def load_checkpoint(model, pth_file):
     """load state and network weights"""
     checkpoint = torch.load(pth_file, map_location=lambda storage, loc: storage.cuda())
-    pretrained_dict = checkpoint['model']
+    if 'model' in checkpoint.keys():
+        pretrained_dict = checkpoint['model']
+    else:
+        pretrained_dict = checkpoint['state_dict']
     model_dict = model.state_dict()
     pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
     model_dict.update(pretrained_dict)
