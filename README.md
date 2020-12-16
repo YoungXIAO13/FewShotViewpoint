@@ -20,6 +20,7 @@ If our project is helpful for your research, please consider citing:
 * [Installation](https://github.com/YoungXIAO13/FewShotViewpoint#installation)
 * [Data Preparation](https://github.com/YoungXIAO13/FewShotViewpoint#data-preparation)
 * [Getting Started](https://github.com/YoungXIAO13/FewShotViewpoint#getting-started)
+* [Demo](https://github.com/YoungXIAO13/FewShotViewpoint#demo)
 
 
 ## Installation
@@ -177,3 +178,15 @@ python mean_metrics.py save_models/IntraDataset_shot10
 
 python mean_metrics.py save_models/InterDataset_shot10
 ``` 
+
+## Demo
+
+To test the pre-trained model on a single object-centered image, run the following command:
+```
+python demo.py \
+--model {model_weight.pth} \
+--class_data {mean_class_attention.pkl} \
+--test_cls {test_class_name} \
+--test_img {tets_image_path}
+```
+The estimated viewpoint will be printed in format of Euler angles.
