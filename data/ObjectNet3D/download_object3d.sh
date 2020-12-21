@@ -19,5 +19,5 @@ mv ObjectNet3D/* ./ && rm -r ObjectNet3D
 python create_annotation.py
 
 ## Download the point clouds for this dataset
-wget --header 'Host: uc23d47b3615cc6557d59b6a3ae5.dl.dropboxusercontent.com' --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://www.dropbox.com/' --header 'Upgrade-Insecure-Requests: 1' 'https://uc23d47b3615cc6557d59b6a3ae5.dl.dropboxusercontent.com/cd/0/get/A8GKqmoG-OuJ_z0eMpz12RGIfC8UmGoK1_gkgL3tskQz4WydJr50I_SqcdywnzBoca01TpfUAf6rCXlifu6ss6MqKD2XjA1ooD90Ge9qeQNtTo1Nl-q7kXWrCHkKy0lenLM/file#' --output-document 'ObjectNet3DPointclouds.zip'
+wget "https://www.dropbox.com/s/0s61m3cvwir0tsc/ObjectNet3DPointclouds.zip?dl=0" && mv ObjectNet3DPointclouds.zip?dl=0 ObjectNet3DPointclouds.zip
 unzip ObjectNet3DPointclouds.zip && rm ObjectNet3DPointclouds.zip
